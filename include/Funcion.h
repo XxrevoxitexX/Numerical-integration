@@ -7,13 +7,13 @@ public:
 class Integrand1 : public Function {
 public:
     double operator()(double x) const {
-        return sqrt(4.0 - sin(x) * sin(x));    //��(4-sin^2 x)
+        return sqrt(4.0 - sin(x) * sin(x));    //√(4-sin^2 x)
     }
 };
 class Integrand2 : public Function {
 public:
     double operator()(double x) const {
-        if (fabs(x) < 1e-12) return 1.0;   // ���� x=0 ���ļ���
+        if (fabs(x) < 1e-12) return 1.0;   // 处理 x=0 处的极限
         return sin(x) / x;     //sin x /x
     }
 };
