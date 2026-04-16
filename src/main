@@ -1,0 +1,109 @@
+#define _USE_MATH_DEFINES
+#include "../include/Integral.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+
+
+int main() {
+    // ���þ������
+    cout << fixed << setprecision(7);
+    double eps = 1e-6;   // ����Ҫ��
+
+
+    // �����ĸ�������������
+    Integrand1 f1;
+    Integrand2 f2;
+    Integrand3 f3;
+    Integrand4 f4;
+
+    cout << "f1" << endl;
+
+    // ���ι�ʽ n=10, n=20
+    cout << "���� n=10 : " << composite_trapezoidal(f1, 0, M_PI/4.0, 10) << endl;
+    cout << "���� n=20 : " << composite_trapezoidal(f1, 0, M_PI/4.0, 20) << endl;
+
+    // Simpson��ʽ n=10, n=20
+    cout << "Simpson n=10 : " << composite_simpson(f1, 0, M_PI/4.0, 10) << endl;
+    cout << "Simpson n=20 : " << composite_simpson(f1, 0, M_PI/4.0, 20) << endl;
+
+    // Romberg��ʽ n=10, n=20
+    cout << "Romberg n=10 : " << composite_romberg(f1, 0, M_PI/4.0, 10) << endl;
+    cout << "Romberg n=20 : " << composite_romberg(f1, 0, M_PI/4.0, 20) << endl;
+
+    // �䲽�����Զ�Ѱ������n
+    cout << "��������Ӧ ����n=" << find_optimal_n(composite_trapezoidal, f1, 0, M_PI/4.0, eps) << " : " << adaptive_trapezoidal(f1, 0, M_PI/4.0,eps) << endl;
+    cout << "Simpson����Ӧ ����n=" << find_optimal_n(composite_simpson, f1, 0, M_PI/4.0, eps) << " : " << adaptive_simpson(f1, 0, M_PI/4.0, eps) << endl;
+    cout << "Romberg����Ӧ ����n=" << find_optimal_n(composite_romberg, f1, 0, M_PI/4.0, eps) << " : " << adaptive_romberg(f1, 0, M_PI/4.0, eps) << endl;
+
+
+
+
+
+
+    cout << "f2" << endl;
+
+    // ���ι�ʽ n=10, n=20
+    cout << "���� n=10 : " << composite_trapezoidal(f2, 0, 1, 10) << endl;
+    cout << "���� n=20 : " << composite_trapezoidal(f2, 0, 1, 20) << endl;
+
+    // Simpson��ʽ n=10, n=20
+    cout << "Simpson n=10 : " << composite_simpson(f2, 0,1, 10) << endl;
+    cout << "Simpson n=20 : " << composite_simpson(f2, 0, 1, 20) << endl;
+
+    // Romberg��ʽ n=10, n=20
+    cout << "Romberg n=10 : " << composite_romberg(f2, 0, 1, 10) << endl;
+    cout << "Romberg n=20 : " << composite_romberg(f2, 0, 1, 20) << endl;
+
+    // �䲽�����Զ�Ѱ������n
+    cout << "��������Ӧ ����n=" << find_optimal_n(composite_trapezoidal, f2, 0, 1, eps) << " : " << adaptive_trapezoidal(f2, 0, 1,eps) << endl;
+    cout << "Simpson����Ӧ ����n=" << find_optimal_n(composite_simpson, f2, 0, 1, eps) << " : " << adaptive_simpson(f2, 0, 1, eps) << endl;
+    cout << "Romberg����Ӧ ����n=" << find_optimal_n(composite_romberg, f2, 0, 1, eps) << " : " << adaptive_romberg(f2, 0, 1, eps) << endl;
+
+
+
+    cout << "f3" << endl;
+
+    // ���ι�ʽ n=10, n=20
+    cout << "���� n=10 : " << composite_trapezoidal(f3, 0, 1, 10) << endl;
+    cout << "���� n=20 : " << composite_trapezoidal(f3, 0, 1, 20) << endl;
+
+    // Simpson��ʽ n=10, n=20
+    cout << "Simpson n=10 : " << composite_simpson(f3, 0,1, 10) << endl;
+    cout << "Simpson n=20 : " << composite_simpson(f3, 0, 1, 20) << endl;
+
+    // Romberg��ʽ n=10, n=20
+    cout << "Romberg n=10 : " << composite_romberg(f3, 0, 1, 10) << endl;
+    cout << "Romberg n=20 : " << composite_romberg(f3, 0, 1, 20) << endl;
+
+    // �䲽�����Զ�Ѱ������n
+    cout << "��������Ӧ ����n=" << find_optimal_n(composite_trapezoidal, f3, 0, 1, eps) << " : " << adaptive_trapezoidal(f3, 0, 1,eps) << endl;
+    cout << "Simpson����Ӧ ����n=" << find_optimal_n(composite_simpson, f3, 0, 1, eps) << " : " << adaptive_simpson(f3, 0, 1, eps) << endl;
+    cout << "Romberg����Ӧ ����n=" << find_optimal_n(composite_romberg, f3, 0, 1, eps) << " : " << adaptive_romberg(f3, 0, 1, eps) << endl;
+
+
+    cout << "f4" << endl;
+
+    // ���ι�ʽ n=10, n=20
+    cout << "���� n=10 : " << composite_trapezoidal(f4, 0, 1, 10) << endl;
+    cout << "���� n=20 : " << composite_trapezoidal(f4, 0, 1, 20) << endl;
+
+    // Simpson��ʽ n=10, n=20
+    cout << "Simpson n=10 : " << composite_simpson(f4, 0,1, 10) << endl;
+    cout << "Simpson n=20 : " << composite_simpson(f4, 0, 1, 20) << endl;
+
+    // Romberg��ʽ n=10, n=20
+    cout << "Romberg n=10 : " << composite_romberg(f4, 0, 1, 10) << endl;
+    cout << "Romberg n=20 : " << composite_romberg(f4, 0, 1, 20) << endl;
+
+    // �䲽�����Զ�Ѱ������n
+    cout << "��������Ӧ ����n=" << find_optimal_n(composite_trapezoidal, f4, 0, 1, eps) << " : " << adaptive_trapezoidal(f4, 0, 1,eps) << endl;
+    cout << "Simpson����Ӧ ����n=" << find_optimal_n(composite_simpson, f4, 0, 1, eps) << " : " << adaptive_simpson(f4, 0, 1, eps) << endl;
+    cout << "Romberg����Ӧ ����n=" << find_optimal_n(composite_romberg, f4, 0, 1, eps) << " : " << adaptive_romberg(f4, 0, 1, eps) << endl;
+
+
+    system("pause");
+    return 0;
+}
